@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JugadorBola : MonoBehaviour
@@ -7,6 +8,7 @@ public class JugadorBola : MonoBehaviour
 
     public Camera camara;
     public GameObject suelo;
+    public GameObject estrella;
     public float velocidad = 5.0f;
 
     private Vector3 offset;
@@ -32,13 +34,18 @@ public class JugadorBola : MonoBehaviour
         transform.Translate(DireccionActual * velocidad * Time.deltaTime);
     }
 
+    
+
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.tag == "Suelo")
         {
+            estrella.gameObject.SetActive(true);
             StartCoroutine(BorrarSuelo(other.gameObject));
+            
         }
     }
+
 
     IEnumerator BorrarSuelo(GameObject suelo)
     {
@@ -52,6 +59,9 @@ public class JugadorBola : MonoBehaviour
         }
 
         Instantiate(suelo, new Vector3(ValX, 0, ValZ), Quaternion.identity);
+
+        yield return new WaitForSeconds(2);
+        Instantiate(estrella, new Vector3(ValX, 1.5f, ValZ), Quaternion.identity);
 
         yield return new WaitForSeconds(2);
         suelo.gameObject.GetComponent<Rigidbody>().isKinematic = false;
@@ -79,5 +89,15 @@ public class JugadorBola : MonoBehaviour
             ValZ += 6.0f;
             Instantiate(suelo, new Vector3(ValX, 0, ValZ), Quaternion.identity);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Estrella"))
+        {
+            other.gameObject.SetActive(false);
+
+        }
+
     }
 }
