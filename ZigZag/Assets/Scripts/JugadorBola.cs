@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JugadorBola : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class JugadorBola : MonoBehaviour
     public GameObject suelo;
     public GameObject estrella;
     public float velocidad = 5.0f;
+    public Text Contador;
 
     private Vector3 offset;
     private float ValX, ValZ;
     private Vector3 DireccionActual;
+    private int totalEstrellas = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,9 +99,12 @@ public class JugadorBola : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Estrella"))
         {
-            other.gameObject.SetActive(false);
-
-        }
-
+            totalEstrellas++;
+            Contador.text = "Estrellas: " + totalEstrellas;
+            Destroy(other.gameObject);
+            
+            }
     }
+
 }
+
