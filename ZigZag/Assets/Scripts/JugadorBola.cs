@@ -52,10 +52,10 @@ public class JugadorBola : MonoBehaviour
         float aleatorio = Random.Range(0.0f, 1.0f);
         if(aleatorio > 0.5)
         {
-            ValX += 6.0f;
+            ValX += 8.0f;
         }
         else{
-            ValZ += 6.0f;
+            ValZ += 10.0f;
         }
 
         Instantiate(suelo, new Vector3(ValX, 0, ValZ), Quaternion.identity);
