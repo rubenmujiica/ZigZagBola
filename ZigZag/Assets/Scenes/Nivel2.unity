@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,7 +428,7 @@ MonoBehaviour:
   camara: {fileID: 1996497960}
   suelo: {fileID: 1499068513}
   estrella: {fileID: 2440792395538662600, guid: 455ff75b77f63f644b60aae0edeeb643, type: 3}
-  velocidad: 15
+  velocidad: 10
   Contador: {fileID: 1234831650}
 --- !u!54 &1156615670
 Rigidbody:

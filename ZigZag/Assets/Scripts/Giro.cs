@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotacion : MonoBehaviour
+public class Giro : MonoBehaviour
 {
     public float speed = 300.0f;
     // Start is called before the first frame update

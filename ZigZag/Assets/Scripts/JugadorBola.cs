@@ -12,6 +12,7 @@ public class JugadorBola : MonoBehaviour
     public GameObject estrella;
     public float velocidad = 5.0f;
     public Text Contador;
+    public GameObject obstaculo;
 
     private Vector3 offset;
     private float ValX, ValZ;
@@ -31,10 +32,23 @@ public class JugadorBola : MonoBehaviour
     void Update()
     {
         camara.transform.position = transform.position + offset;
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(Input.GetKeyUp(KeyCode.UpArrow))
         {
-            CambiarDireccion();
+            DireccionActual = Vector3.forward;
         }
+        if(Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            DireccionActual = Vector3.right;
+        }
+        if(Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            DireccionActual = Vector3.left;
+        }
+        if(Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            DireccionActual = Vector3.back;
+        }
+
         transform.Translate(DireccionActual * velocidad * Time.deltaTime);
     }
 
@@ -64,15 +78,27 @@ public class JugadorBola : MonoBehaviour
 
         Instantiate(suelo, new Vector3(ValX, 0, ValZ), Quaternion.identity);
 
-        yield return new WaitForSeconds(2);
-        Instantiate(estrella, new Vector3(ValX, 1.5f, ValZ), Quaternion.identity);
+        float aleatorio2 = Random.Range(0.0f, 1.0f);
+        if(aleatorio2 > 0.5)
+        {
+            yield return new WaitForSeconds(2);
+            Instantiate(estrella, new Vector3(ValX -3, 1.5f, ValZ-3), estrella.transform.rotation);
+        }
+        else{
+            yield return new WaitForSeconds(2);
+            Instantiate(estrella, new Vector3(ValX + 3, 1.5f, ValZ + 3), estrella.transform.rotation);
+        }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6);
+        Instantiate(obstaculo, new Vector3(ValX, 1.0f, ValZ), Quaternion.identity);
+
+        yield return new WaitForSeconds(5);
         suelo.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         suelo.gameObject.GetComponent<Rigidbody>().useGravity = true;
         yield return new WaitForSeconds(2);
         Destroy(suelo);
     }
+    
 
     void CambiarDireccion()
     {
@@ -82,7 +108,13 @@ public class JugadorBola : MonoBehaviour
         }
         else
         {
-            DireccionActual = Vector3.forward;
+            if(DireccionActual == Vector3.right)
+            {
+                DireccionActual = Vector3.left;
+            }
+            else{
+                DireccionActual = Vector3.forward;
+            }
         }
     }
 

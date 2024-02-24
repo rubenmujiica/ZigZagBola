@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6740374903947238198}
   - component: {fileID: -1405576645191616862}
   - component: {fileID: 8947887090046170005}
+  - component: {fileID: 1488613214075769048}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Estrella
@@ -149,3 +150,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Particulas: {fileID: 2055414590031854248, guid: 464da79827aa5834ab841ea442dbc925, type: 3}
+--- !u!114 &1488613214075769048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2440792395538662600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7981b4c558e12429ff1efe09ccd017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colectar1: {fileID: 8300000, guid: bfb16783445d465469bea84ca8ce1457, type: 3}
