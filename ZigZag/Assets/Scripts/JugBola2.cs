@@ -85,11 +85,11 @@ public class JugBola2 : MonoBehaviour
         float aleatorio2 = Random.Range(0.0f, 1.0f);
         if(aleatorio2 > 0.5)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             Instantiate(estrella, new Vector3(ValX -3, 1.5f, ValZ-3), estrella.transform.rotation);
         }
         else{
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             Instantiate(estrella, new Vector3(ValX + 3, 1.5f, ValZ + 3), estrella.transform.rotation);
         }
 

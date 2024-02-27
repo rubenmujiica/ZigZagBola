@@ -76,7 +76,7 @@ public class JugadorBola : MonoBehaviour
         else{
             ValZ += 10.0f;
         }
-
+    
         Instantiate(suelo, new Vector3(ValX, 0, ValZ), Quaternion.identity);
 
         float aleatorio2 = Random.Range(0.0f, 1.0f);
@@ -93,15 +93,15 @@ public class JugadorBola : MonoBehaviour
         float aleatorio3 = Random.Range(0.0f, 1.0f);
         if(aleatorio3 > 0.5)
         {
-            yield return new WaitForSeconds(4);
-            Instantiate(obstaculo, new Vector3(ValX -2, 1.5f, ValZ -2), obstaculo.transform.rotation);
+            yield return new WaitForSeconds(3);
+            Instantiate(obstaculo, new Vector3(ValX -2, 2.0f, ValZ -2), obstaculo.transform.rotation);
         }
         else{
-            yield return new WaitForSeconds(4);
-            Instantiate(obstaculo, new Vector3(ValX +2, 1.5f, ValZ +2), obstaculo.transform.rotation);
+            yield return new WaitForSeconds(3);
+            Instantiate(obstaculo, new Vector3(ValX +2, 2.0f, ValZ +2), obstaculo.transform.rotation);
         }
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         suelo.gameObject.GetComponent<Rigidbody>().isKinematic = false;
         suelo.gameObject.GetComponent<Rigidbody>().useGravity = true;
         yield return new WaitForSeconds(2);
