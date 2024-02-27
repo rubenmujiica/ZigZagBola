@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2769461231159811345}
   - component: {fileID: 5065061057398578508}
   - component: {fileID: 9010355894699047895}
+  - component: {fileID: -6520755735585025717}
   m_Layer: 0
   m_Name: PiedraMalvada
   m_TagString: Enemigo
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6520755735585025717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192206158730740670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7981b4c558e12429ff1efe09ccd017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colectar1: {fileID: 8300000, guid: 0e2bbbe8b3e7f3f479bcf99d8ba83bdd, type: 3}

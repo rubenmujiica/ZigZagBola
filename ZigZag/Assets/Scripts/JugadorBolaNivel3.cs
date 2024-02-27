@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class JugadorBola : MonoBehaviour
+public class JugadorBolaNivel3 : MonoBehaviour
 {
 
     public Camera camara;
@@ -14,6 +14,7 @@ public class JugadorBola : MonoBehaviour
     public float velocidad = 5.0f;
     public Text Contador;
     public GameObject obstaculo;
+    public GameObject piedramalvada;
 
     private Vector3 offset;
     private float ValX, ValZ;
@@ -93,12 +94,23 @@ public class JugadorBola : MonoBehaviour
         float aleatorio3 = Random.Range(0.0f, 1.0f);
         if(aleatorio3 > 0.5)
         {
-            yield return new WaitForSeconds(3);
-            Instantiate(obstaculo, new Vector3(ValX -2, 2.0f, ValZ -2), obstaculo.transform.rotation);
+            yield return new WaitForSeconds(1);
+            Instantiate(obstaculo, new Vector3(ValX, 1.5f, ValZ), obstaculo.transform.rotation);
         }
         else{
-            yield return new WaitForSeconds(3);
-            Instantiate(obstaculo, new Vector3(ValX +2, 2.0f, ValZ +2), obstaculo.transform.rotation);
+            yield return new WaitForSeconds(1);
+            Instantiate(obstaculo, new Vector3(ValX +2, 1.5f, ValZ +2), obstaculo.transform.rotation);
+        }
+
+        float aleatorio4 = Random.Range(0.0f, 1.0f);
+        if(aleatorio4 > 0.5)
+        {
+            yield return new WaitForSeconds(1);
+            Instantiate(piedramalvada, new Vector3(ValX-2, 2.0f, ValZ-2), piedramalvada.transform.rotation);
+        }
+        else{
+            yield return new WaitForSeconds(1);
+            Instantiate(piedramalvada, new Vector3(ValX +2, 2.0f, ValZ +2), piedramalvada.transform.rotation);
         }
 
         yield return new WaitForSeconds(3);
@@ -146,8 +158,8 @@ public class JugadorBola : MonoBehaviour
             
             }
 
-        if (totalEstrellas == 12){
-            SceneManager.LoadScene("Nivel3");
+        if (totalEstrellas == 13){
+            SceneManager.LoadScene("Victoria");
         }
     }
 
