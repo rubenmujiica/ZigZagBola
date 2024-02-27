@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class JugadorBola : MonoBehaviour
 {
@@ -89,8 +90,16 @@ public class JugadorBola : MonoBehaviour
             Instantiate(estrella, new Vector3(ValX + 3, 1.5f, ValZ + 3), estrella.transform.rotation);
         }
 
-        yield return new WaitForSeconds(6);
-        Instantiate(obstaculo, new Vector3(ValX, 1.0f, ValZ), Quaternion.identity);
+        float aleatorio3 = Random.Range(0.0f, 1.0f);
+        if(aleatorio3 > 0.5)
+        {
+            yield return new WaitForSeconds(4);
+            Instantiate(obstaculo, new Vector3(ValX -2, 1.5f, ValZ -2), Quaternion.identity);
+        }
+        else{
+            yield return new WaitForSeconds(4);
+            Instantiate(obstaculo, new Vector3(ValX +2, 1.5f, ValZ +2), Quaternion.identity);
+        }
 
         yield return new WaitForSeconds(5);
         suelo.gameObject.GetComponent<Rigidbody>().isKinematic = false;
@@ -136,6 +145,10 @@ public class JugadorBola : MonoBehaviour
             Destroy(other.gameObject);
             
             }
+
+        if (totalEstrellas == 10){
+            SceneManager.LoadScene("Nivel2");
+        }
     }
 
 }
