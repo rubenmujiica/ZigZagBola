@@ -94,11 +94,11 @@ public class JugadorBola : MonoBehaviour
         if(aleatorio3 > 0.5)
         {
             yield return new WaitForSeconds(4);
-            Instantiate(obstaculo, new Vector3(ValX -2, 1.5f, ValZ -2), Quaternion.identity);
+            Instantiate(obstaculo, new Vector3(ValX -2, 1.5f, ValZ -2), obstaculo.transform.rotation);
         }
         else{
             yield return new WaitForSeconds(4);
-            Instantiate(obstaculo, new Vector3(ValX +2, 1.5f, ValZ +2), Quaternion.identity);
+            Instantiate(obstaculo, new Vector3(ValX +2, 1.5f, ValZ +2), obstaculo.transform.rotation);
         }
 
         yield return new WaitForSeconds(5);
